@@ -7,7 +7,7 @@ const ProductRow = ({ product }) => {
       <td className="border px-4 py-2">{product.category}</td>
       <td className="border px-4 py-2">₹{product.price}</td>
       <td className="border px-4 py-2">
-        {product.status === "Inactive" ?  "YES"  :  "NO"}
+        {product.status === "Inactive" ?  "NO"  :  "YES"}
       </td>
     </tr>
   );
