@@ -13,11 +13,12 @@ const ProductTable = () => {
   const [sortKey, setSortKey] = useState("name");
   const [sortAsc, setSortAsc] = useState(true);
 
-  const Api = "/api/v1/test";
+  const BASE_URL = import.meta.env.PROD ? import.meta.env.VITE_URL_API : "/api";
+  const Api = `/v1/test`;
 
   const fetchData = async () => {
     try {
-      const response = await axios.post(Api, {});
+      const response = await axios.post(BASE_URL + Api, {});
       const data = response.data;
 
       setProducts(data);
@@ -32,7 +33,7 @@ const ProductTable = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  
+
   useEffect(() => {
     let temp = [...products];
 
