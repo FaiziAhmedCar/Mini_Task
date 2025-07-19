@@ -1,4 +1,5 @@
 import React from "react";
+import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { RiExpandUpDownFill } from "react-icons/ri";
 
 const SortControls = ({ sortKey, setSortKey, sortAsc, setSortAsc }) => {
@@ -12,7 +13,7 @@ const SortControls = ({ sortKey, setSortKey, sortAsc, setSortAsc }) => {
         <div className="flex items-center gap-1">
           <RiExpandUpDownFill className="h-4 w-4"  />
         <select
-          className="bg-gray-200 p-1 w-20 rounded cursor-pointer"
+          className="dropdown"
           value={sortKey}
           onChange={(e) => setSortKey(e.target.value)}
           >
@@ -21,12 +22,12 @@ const SortControls = ({ sortKey, setSortKey, sortAsc, setSortAsc }) => {
         </select>
             </div>
           </div>
-
         <button
-          className=" p-1 w-20 rounded bg-gray-200 hover:bg-gray-300
+          className=" p-1 w-20  rounded bg-gray-200 hover:bg-gray-300
            transition-colors hover:shadow-lg  hover:cursor-pointer mt-5"
           onClick={() => setSortAsc(!sortAsc)}
         >
+          {sortAsc ? <FaCaretUp  /> : <FaCaretDown  />}
           {sortAsc ? "ASC" : "DESC"}
         </button>
       </div>

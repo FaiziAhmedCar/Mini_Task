@@ -30,7 +30,7 @@ const Filters = ({
         <div className="flex items-center gap-1">
           <IoIosApps className="h-4 w-4" />
         <select
-          className=" bg-gray-200 p-1  rounded w-20 cursor-pointer"
+          className="dropdown"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
           >
@@ -50,7 +50,7 @@ const Filters = ({
         <div className="flex items-center gap-1 ">
           <FaRupeeSign className="h-4 w-4" />
           <select
-            className="bg-gray-200 p-1 rounded w-20 cursor-pointer "
+            className="dropdown "
             value={priceRange}
             onChange={(e) => setPriceRange(e.target.value)}
           >
@@ -64,7 +64,7 @@ const Filters = ({
       </div>
 
       {/* In Stock Toggle */}
-      <div className="flex flex-col  bg-gray-300 rounded-xl p-2 mt-5 hover:shadow-lg transition-shadow duration-300 ">
+      <div className="flex flex-col  bg-gray-300 rounded p-2 mt-5 hover:shadow-lg transition-shadow duration-300 ">
         <label className="flex items-center gap-2 cursor-pointer text-gray-600 text-[12px]">
           <input
             type="checkbox"

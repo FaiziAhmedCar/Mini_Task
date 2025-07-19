@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-[#f2f5f6] text-gray-900 lg:text-[12px] ;
+  @apply bg-gray-300 text-gray-900 lg:text-[12px] ;
 }
 
+.dropdown {
+  @apply  border-[1px]    p-1  rounded w-20 cursor-pointer;
+}

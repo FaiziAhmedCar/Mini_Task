@@ -3,6 +3,7 @@ import Filters from "./Filters";
 import SortControls from "./SortControls";
 import ProductRow from "./ProductRow";
 import axios from "axios";
+import Card from "./Card";
 
 const ProductTable = () => {
   const [products, setProducts] = useState([]);
@@ -89,8 +90,8 @@ const ProductTable = () => {
           sortAsc={sortAsc}
           setSortAsc={setSortAsc}
         />
-        <div className="overflow-x-auto bg-white p-2 rounded shadow shadow-gray-300 " >
-          <table className="w-full border-collapse border">
+        <div className="overflow-x-auto ">
+          {/* <table className="w-full border-collapse border">
             <thead>
               <tr className="bg-gray-200">
                 <th className="border px-4 py-2">Name</th>
@@ -112,7 +113,20 @@ const ProductTable = () => {
                 </tr>
               )}
             </tbody>
-          </table>
+          </table> */}
+          <div>
+            {filtered.length > 0 ? (
+              filtered.map((product) => (
+                <Card key={product.product_id} product={product} />
+              ))
+            ) : (
+              <tr>
+                <td colSpan="4" className="text-center py-4">
+                  No products found.
+                </td>
+              </tr>
+            )}
+          </div>
         </div>
       </div>
     </div>
