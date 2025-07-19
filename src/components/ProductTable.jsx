@@ -18,7 +18,7 @@ const ProductTable = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.post(BASE_URL + Api, {});
+      const response = await axios.get(BASE_URL + Api, {});
       const data = response.data;
 
       setProducts(data);
@@ -71,47 +71,50 @@ const ProductTable = () => {
   const uniqueCategories = ["All", ...new Set(products.map((p) => p.category))];
 
   return (
-    <div className="space-y-4">
-      <Filters
-        category={category}
-        setCategory={setCategory}
-        priceRange={priceRange}
-        setPriceRange={setPriceRange}
-        inStockOnly={inStockOnly}
-        setInStockOnly={setInStockOnly}
-        categories={uniqueCategories}
-      />
+    <div className="container mx-auto p-4  ">
+      <div className="space-y-4 ">
+        <Filters
+          category={category}
+          setCategory={setCategory}
+          priceRange={priceRange}
+          setPriceRange={setPriceRange}
+          inStockOnly={inStockOnly}
+          setInStockOnly={setInStockOnly}
+          categories={uniqueCategories}
+        />
 
-      <SortControls
-        sortKey={sortKey}
-        setSortKey={setSortKey}
-        sortAsc={sortAsc}
-        setSortAsc={setSortAsc}
-      />
-
-      <table className="w-full border-collapse border">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="border px-4 py-2">Name</th>
-            <th className="border px-4 py-2">Category</th>
-            <th className="border px-4 py-2">Price</th>
-            <th className="border px-4 py-2">In Stock</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filtered.length > 0 ? (
-            filtered.map((product) => (
-              <ProductRow key={product.product_id} product={product} />
-            ))
-          ) : (
-            <tr>
-              <td colSpan="4" className="text-center py-4">
-                No products found.
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+        <SortControls
+          sortKey={sortKey}
+          setSortKey={setSortKey}
+          sortAsc={sortAsc}
+          setSortAsc={setSortAsc}
+        />
+        <div className="overflow-x-auto bg-white p-2 rounded shadow shadow-gray-300 " >
+          <table className="w-full border-collapse border">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="border px-4 py-2">Name</th>
+                <th className="border px-4 py-2">Category</th>
+                <th className="border px-4 py-2">Price</th>
+                <th className="border px-4 py-2">In Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filtered.length > 0 ? (
+                filtered.map((product) => (
+                  <ProductRow key={product.product_id} product={product} />
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4" className="text-center py-4">
+                    No products found.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 };

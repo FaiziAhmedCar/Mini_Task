@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-gray-300 text-gray-900;
+  @apply bg-[#f2f5f6] text-gray-900 lg:text-[12px] ;
 }
 
-html {
-  @apply bg-gray-300 text-gray-900 text-2xl;
-}
