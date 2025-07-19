@@ -42,7 +42,7 @@ const ProductTable = () => {
     }
 
     if (inStockOnly) {
-      temp = temp.filter((p) => p.inStock);
+      temp = temp.filter((p) => p.status === "Active");
     }
 
     temp = temp.filter((p) => {
